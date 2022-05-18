@@ -16,23 +16,43 @@ class Gudg extends StatefulWidget {
 class _LoginState extends State<Gudg> {
   var Controller = TextEditingController();
   var Controller1 = TextEditingController();
-  var Controller2 = TextEditingController();
-  var Controller3 = TextEditingController();
-  var Controller4 = TextEditingController();
-  var Controller5 = TextEditingController();
-  var Controller6 = TextEditingController();
-  var Controller7 = TextEditingController();
-  var Controller8 = TextEditingController();
-  var schoolController = TextEditingController();
-  var formKey = GlobalKey<FormState>();
+
   String? selectedValue;
+  String? Value;
+  String? Value1;
+  String? Value2;
+  String? Value3;
+  String? Value4;
+  String? Value5;
+  String? Value6;
+  String? Value7;
+  String? Value8;
+
   List<String> items = [
     'تقليدية',
     'جديدة بسيطة',
     'متميزة',
     'مبدعة',
   ];
+  List<String> items6 = [
+    'ضعيفة',
+    'مقبولة',
+    'متميزة',
+    'مبدعة',
+  ];
   List<String> items1 = [
+    'ضعيفة',
+    'مقبولة',
+    'متميزة',
+    'مبدعة',
+  ];
+  List<String> items8 = [
+    'ضعيفة',
+    'مقبولة',
+    'متميزة',
+    'مبدعة',
+  ];
+  List<String> items5 = [
     'ضعيفة',
     'مقبولة',
     'متميزة',
@@ -50,6 +70,12 @@ class _LoginState extends State<Gudg> {
     'عاليه',
     'متقنه',
   ];
+  List<String> items7 = [
+    'بسيطة',
+    'متوسطة',
+    'عاليه',
+    'متقنه',
+  ];
   List<String> items4 = [
     'ضعيف',
     'مقبول',
@@ -57,15 +83,14 @@ class _LoginState extends State<Gudg> {
     'متميز',
     'مبدع',
   ];
-  bool isPassword = true;
-  int age = 20;
-  bool ismale = true;
-  String dropval = '';
+
 
   void dropChange(String? val) {}
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width ;
+    double height = MediaQuery.of(context).size.height ;
     return Scaffold(
       body: Container(
         child: SingleChildScrollView(
@@ -90,83 +115,94 @@ class _LoginState extends State<Gudg> {
               ),
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(1.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Column(
                     children: [
                       SizedBox(
-                      height: 20.0,
+                      height: 5.0,
                     ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(10),
-                          filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                          border: InputBorder.none
-                        ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '''فكرة المشروع''',
-                              style: TextStyle(
-                                color: Color(0xff951a49),
-                                fontFamily: 'ElMessiri',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
-                            ),
-                          ),
-                        ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items.map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        )).toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: SizedBox(
+                          height: 45,
+                          width: width,
+                          child: ElevatedButton(
+                            onPressed: () {
 
+                            },
+                            child: Text(' المشروع ',
+                                style: TextStyle(
+                                    color: Color5,
+                                    fontFamily: 'ElMessiri',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(
+                                    Color(0xff951a49)),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: BorderSide(
+                                        color: Color(0xff951a49),
+                                        width: 2.0,
+                                      ),
+                                    ))),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                      height: 10.0,
+                    ),
+                      Container(
+                       margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color:kPrimaryColor,width: 3 )
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
+                              child: Text(
+                                '''فكرة المشروع''',
+                                style: TextStyle(
+                                  color: Color(0xff951a49),
+                                  fontFamily: 'ElMessiri',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                ),
+                              ),
+                            ),
+                       focusColor:Color5 ,
+                       items: items.map(buildMenuItem).toList(),
+                            onChanged: (Value) => setState(() => this.Value = Value ),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value1,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''جودة التنفيذ''',
                                 style: TextStyle(
@@ -177,56 +213,30 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items1.map(buildMenuItem1).toList(),
+                            onChanged: (Value1) => setState(() => this.Value1 = Value1 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items1
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value2,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''جودة الشكل''',
                                 style: TextStyle(
@@ -237,56 +247,30 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items5.map(buildMenuItem2).toList(),
+                            onChanged: (Value2) => setState(() => this.Value2 = Value2 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items1
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value3,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''جودة المحتوي''',
                                 style: TextStyle(
@@ -297,56 +281,30 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items6.map(buildMenuItem3).toList(),
+                            onChanged: (Value3) => setState(() => this.Value3 = Value3 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items1
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value4,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''درجة التعقيد''',
                                 style: TextStyle(
@@ -357,56 +315,30 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items3.map(buildMenuItem4).toList(),
+                            onChanged: (Value4) => setState(() => this.Value4 = Value4 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items3
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value5,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''فائدة المشروع للاّخرين''',
                                 style: TextStyle(
@@ -417,45 +349,17 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items2.map(buildMenuItem5).toList(),
+                            onChanged: (Value5) => setState(() => this.Value5 = Value5 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items2
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       defaultFormField(
-                        controller: Controller4,
+                        controller: Controller,
                         label: ' اللغةوالادوات المستخدمة ',
                         type: TextInputType.text,
                         validate: (String? value) {},
@@ -463,20 +367,21 @@ class _LoginState extends State<Gudg> {
                       SizedBox(
                         height: 10.0,
                       ),
-
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value6,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''البنية التحتية المستخدمة''',
                                 style: TextStyle(
@@ -487,56 +392,30 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items7.map(buildMenuItem6).toList(),
+                            onChanged: (Value6) => setState(() => this.Value6 = Value6 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items3
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value7,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''درجة التماسة من الادوات''',
                                 style: TextStyle(
@@ -547,45 +426,17 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items8.map(buildMenuItem7).toList(),
+                            onChanged: (Value7) => setState(() => this.Value7 = Value7 ),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items1
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       defaultFormField(
-                        controller: Controller5,
+                        controller: Controller1,
                         label: ' ملاحظات ',
                         type: TextInputType.text,
                         validate: (String? value) {},
@@ -593,19 +444,21 @@ class _LoginState extends State<Gudg> {
                       SizedBox(
                         height: 10.0,
                       ),
-                      DropdownButtonFormField(
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            filled: true,
-                            enabledBorder:  OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0), borderRadius: BorderRadius.circular(18.0), ),
-                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xff951a49), width: 2.0),borderRadius: BorderRadius.circular(18.0),),
-                            border: InputBorder.none
+                      Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color:kPrimaryColor,width: 3 )
                         ),
-                        focusColor: Color(0xffffffff),
-                        hint: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Container(
-                            child: Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String> (
+                            value:Value8,
+                            iconSize: 40,
+                            icon: Icon(Icons.arrow_drop_down,color: kPrimaryColor,),
+                            elevation: 4,
+                            isExpanded: true,
+                            hint: Center(
                               child: Text(
                                 '''التقدير العام''',
                                 style: TextStyle(
@@ -616,70 +469,44 @@ class _LoginState extends State<Gudg> {
                                 ),
                               ),
                             ),
+                            focusColor:Color5 ,
+                            items: items4.map(buildMenuItem8).toList(),
+                            onChanged: (Value8) => setState(() => this.Value8 = Value8),
                           ),
                         ),
-                        elevation: 4,
-                        isDense: true,
-                        isExpanded: true,
-                        items: items4
-                            .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Center(
-                            child: Text(
-                              item,
-                              style: const TextStyle(
-                                color: Color(0xff951a49),
-                                fontSize: 20,
-                                fontWeight:FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ))
-                            .toList(),
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value as String;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xff951a49),
-                        ),
-                        iconSize: 40,
-                        iconEnabledColor: Color(0xff951a49),
-
                       ),
                       SizedBox(
                         height: 20.0,
                       ),
-
-                      SizedBox(
-                        height: 40,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
-                          },
-                          child: Text(' حفظ ',
-                              style: TextStyle(
-                                  color: Color(0xffF2EBE5),
-                                  fontFamily: 'ElMessiri',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold)),
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color(0xff951a49)),
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(
-                                  color: Color(0xff951a49),
-                                  width: 2.0,
-                                ),
-                              ))),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: SizedBox(
+                          height: 40,
+                          width: width,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                            },
+                            child: Text(' حفظ ',
+                                style: TextStyle(
+                                    color: Color5,
+                                    fontFamily: 'ElMessiri',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(
+                                    Color(0xff951a49)),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(
+                                    color: Color(0xff951a49),
+                                    width: 2.0,
+                                  ),
+                                ))),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -696,4 +523,114 @@ class _LoginState extends State<Gudg> {
       ),
     );
   }
+  DropdownMenuItem<String> buildMenuItem(String item) =>DropdownMenuItem(
+    value:item,
+    child: Center(
+      child: Text(item, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem1(String item1) =>DropdownMenuItem(
+    value:item1,
+    child: Center(
+      child: Text(item1, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem2(String item2) =>DropdownMenuItem(
+    value:item2,
+    child: Center(
+      child: Text(item2, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem3(String item3) =>DropdownMenuItem(
+    value:item3,
+    child: Center(
+      child: Text(item3, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem4(String item4) =>DropdownMenuItem(
+    value:item4,
+    child: Center(
+      child: Text(item4, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem5(String item5) =>DropdownMenuItem(
+    value:item5,
+    child: Center(
+      child: Text(item5, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem6(String item6) =>DropdownMenuItem(
+    value:item6,
+    child: Center(
+      child: Text(item6, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem7(String item7) =>DropdownMenuItem(
+    value:item7,
+    child: Center(
+      child: Text(item7, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+  DropdownMenuItem<String> buildMenuItem8(String item8) =>DropdownMenuItem(
+    value:item8,
+    child: Center(
+      child: Text(item8, style: TextStyle(
+        color: kPrimaryColor,
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        fontWeight:FontWeight.bold,
+
+      ),),
+    ),
+  );
+
+
 }
