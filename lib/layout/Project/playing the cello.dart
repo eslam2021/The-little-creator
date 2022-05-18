@@ -124,11 +124,11 @@ class _PoetryState extends State<Cello> {
                       fontSize: 20) , overflow: TextOverflow.ellipsis ,maxLines: 6,),
               ),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    '''
+
+              Container(
+                alignment: Alignment.topRight,
+                child: Text(
+                  '''
 بالنسبة للفئة العمرية الثانية آلة التشيللو يتطلب أى حركة من كتاب باخ*
 المتتاليات الستة كحركة إجبارية + اختيار حركة أولى من أى كونشيرتو 
 أو سوناتا (هايدن، صانصانص، لالو، برامز، ديبوسى).
@@ -136,22 +136,12 @@ class _PoetryState extends State<Cello> {
 إضاءة واضحة وصورة ثابتة ويظهر العازف بالكامل 
 بالنسبة لالة التشيلو (جالساً )  بحيث تكون اليدين اليمني واليسري واضحتين وان 
 يكون الصوت مأخوذ مباشرة وليس مسجلاً''',
-                    textDirection: TextDirection.rtl,
+                  textDirection: TextDirection.rtl,
 
-                    style: TextStyle(
-                        fontFamily: 'ElMessiri',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20) , overflow: TextOverflow.ellipsis ,maxLines: 16,),
-                ],
-              ),
-              Container(
-                alignment: Alignment.topRight,
-                child: Text(
-                    '''تأليف مسرحية قصيرة مكونة من فصل واحد''',
-                    style: TextStyle(
-                        fontFamily: 'ElMessiri',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20)),
+                  style: TextStyle(
+                      fontFamily: 'ElMessiri',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20) , overflow: TextOverflow.ellipsis ,maxLines: 16,),
               ),
 
 

@@ -3,7 +3,6 @@ import 'package:firist_project/modules/home/home.dart';
 import 'package:firist_project/modules/home/request.dart';
 import 'package:firist_project/modules/login/Start.dart';
 import 'package:firist_project/shared/Colors.dart';
-import 'package:firist_project/shared/bloc_observer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
